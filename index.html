@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+	<meta charset="utf-8">
+
+	<title>Erlang: обзор</title>
+
+	<meta name="description" content="Talk about Clojure in general">
+	<meta name="author" content="Dmitry Groshev">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<!--
+        <link rel="stylesheet" href="css/theme/default.css" id="theme"> -->
+	<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+	<link rel="stylesheet" href="lib/css/hemisu-light.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+	  document.write( '
+      <link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js">
+        </script>
+		<![endif]-->
+  </head>
+
+  <body>
+	<div class="reveal">
+	  <!-- Any section element inside of this container is displayed as a slide -->
+	  <div class="slides">
+		<section>
+		  <h1>Erlang</h1>
+		  <h3>обзор</h3>
+		  <p>
+			<small>Дмитрий Грошев (<a href="http://twitter.com/lambdadmitry">@lambdadmitry</a>)</small>
+		  </p>
+		</section>
+
+        <section>
+          <ul>
+            <li>Erlang приятен, как язык и платформа
+            <li>удобен для больших команд
+            <li>удобен для узких ниш
+          </ul>
+        </section>
+
+        <section>
+          <h1>Приятность</h1>
+        </section>
+
+        <section>
+          <h2>Отступление</h2>
+          <p>Programming…</p>
+          <ul style="list-style:none;">
+            <li>…in the small
+            <li>…in the large
+          </ul>
+        </section>
+
+        <section>
+          <h2>…in the small</h2>
+        </section>
+
+        <section>
+          <p>Хорошее</p>
+          <ul>
+            <li><strong>очень</strong> простой язык
+            <li>pattern matching
+            <li>атомы
+            <li>хвостовая рекурсия
+            <li>list comprehensions
+            <li>модули
+            <li>иммутабельность всего
+            <li>single assignment
+            <li>нет сложных типов
+          </ul>
+        </section>
+
+        <section>
+          <p>Плохое</p>
+          <ul>
+            <li>иммутабельность всего
+            <li>single assignment
+            <li>нет сложных типов
+            <li><strong>очень</strong> простой язык
+          </ul>
+        </section>
+
+        <section>
+          <h2>…in the large</h2>
+        </section>
+
+        <section>
+          <p>Хорошее</p>
+          <ul>
+            <li>Акторы
+            <li>OTP
+            <li>Обработка ошибок
+            <li><strong>Не нужно думать</strong>
+          </ul>
+        </section>
+
+        <section>
+          <p>Плохое</p>
+          <p>…</p>
+        </section>
+
+        <section>
+          <p>Erlang любят исследователи!</p>
+          <ul>
+            <li>статический анализ динамических языков (e.g. Dialyzer)
+            <li>распределённые алгоритмы (e.g. RAFT)
+          </ul>
+        </section>
+
+        <section>
+          <h2>Платформа</h2>
+        </section>
+
+        <section>
+          <h3>Отступление про историю</h3>
+          <ul>
+            <li>1995: первый продакшн
+            <li>1998: бан в Ericsson, opensource
+            <li>2000–2004: бан отменён
+            <li>2006: SMP
+          </ul>
+          <p>Следы: tradeoff'ы, Mnesia, полносвязный кластер</p>
+        </section>
+
+        <section>
+          <p>Хорошее</p>
+          <ul>
+            <li><strong>обработка ошибок</strong>
+            <li>«плавность» выполнения (вытеснение)
+            <li>удобство интроспекции «на лету»
+            <li>scalability
+          </ul>
+        </section>
+
+        <section>
+          <p>Плохое</p>
+          <ul>
+            <li>большой рантайм-оверхед (~Python)
+            <li>опасность NIF
+            <li>«изображает ОС» ⓒ amarao
+          </ul>
+        </section>
+
+        <section>
+          <h1>Команды и ниши</h1>
+        </section>
+
+        <section>
+          <h3>Большие команды</h3>
+          <ul>
+            <li>Настоящая простота (а не как у Java)
+            <li>Ericsson, Motorola, Klarna
+            <li><em>одна крупная петербуржская торговая компания</em>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Узкие ниши</h3>
+          <ul>
+            <li>Riak, CouchDB
+            <li>Erlyvideo
+            <li>WhatsApp
+            <li>YAWNDB
+            <li>перекладывание байтиков
+            <li>инфраструктура
+          </ul>
+        </section>
+
+        <section>
+          <h3>Сравнения</h3>
+          <ul>
+            <li>vs lowlvl Java: Hibernate, Spring, …
+            <li>vs highlvl Java: LMAX Disruptor
+            <li>vs Python/Ruby: Django/Rails
+          </ul>
+          <p>Есть PropEr, но нет веб-фреймворка!</p>
+        </section>
+
+        <section>
+          <h1>Выводы</h1>
+        </section>
+
+        <section>
+          <ul>
+            <li>простой и полезный инструмент
+            <li>быстро изучается
+            <li>изучение окупается
+            <li>совсем не silver bullet
+          </ul>
+        </section>
+
+        <section>
+          <p>Пользуясь случаем…</p>
+        </section>
+
+        <section>
+          <h2>Вопросы?</h2>
+          <p>Слайды: <a href="http://si14.github.io/sprug-2014-02-slides">si14.github.io/sprug-2014-02-slides</a></p>
+          <p>Твиттер: <a href="https://twitter.com/lambdadmitry">@lambdadmitry</a></p>
+          <p>Почта: <a href="mailto:lambdadmitry@gmail.com">lambdadmitry@gmail.com</a></p>
+        </section>
+
+	  </div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.min.js"></script>
+
+	<script>
+
+	  // Full list of configuration options available here:
+	  // https://github.com/hakimel/reveal.js#configuration
+	  Reveal.initialize({
+	  controls: false,
+	  progress: true,
+	  history: true,
+	  center: true,
+
+	  theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	  transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+	  // Optional libraries used to extend on reveal.js
+	  dependencies: [
+	  { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	  { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	  { src: 'plugin/highlight/highlight.js', async: true, callback: function() {  hljs.initHighlightingOnLoad(); } },
+	  { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+	  { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	  // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+	  // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	  ]
+	  });
+
+	</script>
+
+  </body>
+</html>
